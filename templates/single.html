@@ -3,7 +3,7 @@
 {% block content %}
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 670px">
 
         </div>
     </div>
@@ -24,7 +24,36 @@
                 <h3 class="mb-4 font-weight-bold">Maydon : {{ muosasa.maydon }} m² </h3>
 
                 <p>{{ muosasa.haqida }}</p>
+
+                <div class="container feature pt-5">
+                    <div class="d-flex flex-column text-center mb-5">
+                        <h4 class="display-4 font-weight-bold">Oz ichiga olgan</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            {% for sport in sportlar %}
+                            <div class="row align-items-center">
+                                <div class="col-sm-5">
+                                    <img class="img-fluid mb-3 " src="{{sport.photo.url}}" alt="Image">
+                                   
+                                </div>
+                               
+                                <div class="col-sm-7">
+                                    <h4 class="font-weight-bold">{{sport.nomi}}</h4>
+                                    <h5>Muasasa : {{sport.arena}}</h5>
+                                    {%  for murabbiy in murabbiylar  %}
+                                    {% if murabbiy.sport.nomi == sport.nomi %}
+                                    <h5>Murabbiy : <a href="">{{murabbiy.name}}</a></h5>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
         `        </div>
+        
             </div>
             </div>
     <!-- Blog Detail End -->

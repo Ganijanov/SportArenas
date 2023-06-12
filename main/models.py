@@ -37,7 +37,8 @@ class Arena(models.Model):
 class Sport(models.Model):
     nomi = models.CharField(max_length=250)
     photo = models.ImageField(upload_to='Sport/')
-    arena = models.ForeignKey(Arena, on_delete=models.CASCADE)
+    bio = models.CharField(max_length=255, default="Mavjud emas")
+    arena = models.ForeignKey(Arena, on_delete=models.CASCADE, related_name='arena')
 
     def __str__(self) -> str:
         return self.nomi

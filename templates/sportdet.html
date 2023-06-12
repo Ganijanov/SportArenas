@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 670px">
+
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Blog Detail Start -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4 font-weight-bold">{{ sport.nomi }}</h1>
+                <img class="w-50 float-left mr-4 mb-3" src="{{sport.photo.url}}" alt="Image">
+                <h3 class="mb-4 font-weight-bold">Ariza qoldirish</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <input type="text" class="form-control form-control-lg bg-white text-dark" placeholder="Name">
+                        </div>
+                        <div class="col form-group">
+                            <input type="tel" class="form-control form-control-lg bg-white text-dark" placeholder="Phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-lg btn-block btn-white border-dark  "
+                                value="Send">
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <h3 class="mb-4 font-weight-bold">Qisqacha</h3>
+                <h4 class="mb-4 font-weight-bold">{{ sport.bio }}</h4>
+            </div>
+            </div>
+            <div class="container pt-5 team">
+                <div class="d-flex flex-column text-center mb-5">
+                    <h4 class="display-4 font-weight-bold">Murabbiylar</h4>
+                </div>
+                <div class="row">
+                    {% for trener in trenerlar %}
+                    <div class="col-lg-3 col-md-6 mb-5">
+                        <div class="card border-0 bg-secondary text-center text-white">
+                            <img class="card-img-top" src=" {{trener.img.url}}" alt="">
+                            <div class="card-social d-flex align-items-center justify-content-center">
+                                <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="{{trener.facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;"  href="{{trener.insta}}" target="_blank" ><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="card-body bg-secondary">
+                                <h4 class="card-title text-primary">{{trener.name}}</h4>
+                                <p class="card-text">{{trener.sport.nomi}} murabbiysi</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}            
+                </div>
+            </div>
+            </div>
+    <!-- Blog Detail End -->
+    {% endblock  %}
