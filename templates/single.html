@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Blog Detail Start -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4 font-weight-bold">{{ muosasa.nomi }}</h1>
+                <img class="w-50 float-left mr-4 mb-3" src="{{muosasa.images.first.image.url}}" alt="Image">
+                <h3 class="mb-4 font-weight-bold">Ochilish : {{ muosasa.bsh_voqti }}</h3>
+                <h3 class="mb-4 font-weight-bold">Yopilish : {{ muosasa.tgsh_voqti }}</h3>
+                <h3 class="mb-4 font-weight-bold">Parking : {% if muosasa.parking %} Mavjud {%else%} Mavjud emas {%endif%}</h3>
+                <h3 class="mb-4 font-weight-bold">Dush : {% if muosasa.parking %} Mavjud {%else%} Mavjud emas {%endif%}</h3>
+                <h3 class="mb-4 font-weight-bold">So`ngi tamir : {{ muosasa.tamir }}</h3>
+                <h3 class="mb-4 font-weight-bold">Maydon : {{ muosasa.maydon }} m² </h3>
+
+                <p>{{ muosasa.haqida }}</p>
+        `        </div>
+            </div>
+            </div>
+    <!-- Blog Detail End -->
+    {% endblock  %}
